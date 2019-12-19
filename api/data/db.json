@@ -6,8 +6,9 @@
       "id": 1
     },
     {
-      "email": "johndoe@example.com",
-      "password": "$2a$10$d1/vuKUJpF37Eid/9iO4UON0c.kSQdCqLCIxvMcFxTt11u4gwi4wa",
+      "email": "jimbob@example.com",
+      "password": "$2a$10$0f/HDRo/QY.H4Xj9deuIsedsbj27GMBYyR.ASrBQpxLfI2l8G8hb6",
+      "food": "pizza",
       "id": 2
     },
     {

@@ -4,6 +4,7 @@ const auth = require("json-server-auth");
 
 const app = server.create();
 const router = server.router(join(__dirname, "./data/db.json"));
+const middlewares = server.defaults();
 const port = process.env.PORT || 5000;
 
 const rules = auth.rewriter({
@@ -14,6 +15,7 @@ const rules = auth.rewriter({
 app.db = router.db;
 
 app.use(rules);
+app.use(middlewares);
 app.use(auth);
 app.use(router);
 
