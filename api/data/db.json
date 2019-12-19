@@ -1,3 +1,9 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "me@jasonsbarr.dev",
+      "password": "$2a$10$3uo4Pz4rD/FMnCEC/ZB6z.TwS905erzSurKf5KG40nPdB4lZbiXji",
+      "id": 1
+    }
+  ]
 }
