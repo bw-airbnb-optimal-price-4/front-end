@@ -6,6 +6,14 @@ const app = server.create();
 const router = server.router(join(__dirname, "./data/db.json"));
 const port = process.env.PORT || 5000;
 
+const rules = auth.rewriter({
+  "/auth/register": "/register",
+  "/auth/login": "/login",
+});
+
+app.db = router.db;
+
+app.use(rules);
 app.use(auth);
 app.use(router);
 
