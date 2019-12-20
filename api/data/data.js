@@ -54,5 +54,5 @@ const listings = parse(
 
 fs.writeFileSync(
   join(__dirname, "./db.json"),
-  JSON.stringify({ users, listings }, null, 2),
+  JSON.stringify({ users, listings, predicted_price: 198 }, null, 2),
 );
