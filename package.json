@@ -18,7 +18,8 @@
     "eject": "react-scripts eject",
     "start:api": "cross-env PORT=4000 nodemon api/server.js",
     "start": "run-s start:api start:ui",
-    "format": "prettier --write \"**/*.{js,jsx}\""
+    "format": "prettier --write \"**/*.{js,jsx}\"",
+    "make:data": "node api/data/data.js"
   },
   "eslintConfig": {
     "extends": "react-app"
