@@ -3,7 +3,7 @@ import Navigation from "./Navigation";
 import FormWithStyles from "./Form/FormWithStyles";
 import InputWithStyles from "./Form/InputWithStyles";
 import ButtonSubmit from "./Form/ButtonSubmit";
-import AnchorWithStyles from "./AnchorWithStyles";
+import LinkWithStyles from "./LinkWithStyles";
 
 export default function SignUpForm() {
   return (
@@ -36,7 +36,7 @@ export default function SignUpForm() {
         <ButtonSubmit type="submit">Create Account</ButtonSubmit>
         <div>
           <span>Already have an account?</span>
-          <AnchorWithStyles href=""> Login here</AnchorWithStyles>
+          <LinkWithStyles to="/"> Login here</LinkWithStyles>
         </div>
       </FormWithStyles>
     </div>

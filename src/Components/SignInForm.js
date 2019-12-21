@@ -3,7 +3,7 @@ import Navigation from "./Navigation";
 import FormWithStyles from "./Form/FormWithStyles";
 import InputWithStyles from "./Form/InputWithStyles";
 import ButtonSubmit from "./Form/ButtonSubmit";
-import AnchorWithStyles from "./AnchorWithStyles";
+import LinkWithStyles from "./LinkWithStyles";
 
 const SignIn = () => {
   return (
@@ -26,9 +26,9 @@ const SignIn = () => {
         <ButtonSubmit />
         <div>
           <span>New Here?&nbsp;</span>
-          <AnchorWithStyles href="">
+          <LinkWithStyles to="/signup">
             Create an Account
-          </AnchorWithStyles>
+          </LinkWithStyles>
         </div>
       </FormWithStyles>
     </div>
