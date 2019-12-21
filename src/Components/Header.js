@@ -14,9 +14,9 @@ const LogoStyling = styled.h1`
 `;
 
 export default function Navigation() {
-    return (
-      <NavStyling className="Nav">
-        <LogoStyling className="Logo">LOGO</LogoStyling>
-      </NavStyling>
-    );
+  return (
+    <NavStyling className="Nav">
+      <LogoStyling className="Logo">LOGO</LogoStyling>
+    </NavStyling>
+  );
 }

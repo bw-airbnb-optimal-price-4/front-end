@@ -3,58 +3,56 @@ import styled from "styled-components";
 import Navigation from "./Navigation";
 
 const FormStyling = styled.form`
-    display: block;
-    align-content: center;
-    padding-bottom: 10px;
-    margin: 8%;
+  display: block;
+  align-content: center;
+  padding-bottom: 10px;
+  margin: 8%;
 `;
 
 const InputStyling = styled.input`
-    width: 30%;
-    margin: 1% 12%;
+  width: 30%;
+  margin: 1% 12%;
 `;
 
 const ButtonStyling = styled.button`
-    border-radius: 6px;
-    border: none;
-    width: 15%;
-    height: 30px;
-    margin: 3% 25%;
-    color: white;
-    background-color: #19BD60;
+  border-radius: 6px;
+  border: none;
+  width: 15%;
+  height: 30px;
+  margin: 3% 25%;
+  color: white;
+  background-color: #19bd60;
 `;
 
 const AnchorStyling = styled.a`
   text-decoration: none;
-  color: #1FA9AB;
+  color: #1fa9ab;
 `;
 
 export default function SignIn() {
-    return (
+  return (
+    <div>
+      <Navigation />
+      <FormStyling>
+        <h1>Welcome Back!</h1>
+        <InputStyling
+          placeholder="Email"
+          id="email"
+          type="text"
+          name="email"
+        />
+        <InputStyling
+          placeholder="Password"
+          id="password"
+          type="password"
+          name="password"
+        />
+        <ButtonStyling type="submit">Login</ButtonStyling>
         <div>
-            <Navigation/>
-            <FormStyling>
-                <h1>Welcome Back!</h1>
-                <InputStyling 
-                  placeholder="Email"
-                  id="email"                    
-                  type="text"
-                  name="email"
-                />
-                <InputStyling 
-                  placeholder="Password" 
-                  id="password"
-                  type="password"
-                  name="password"
-                />
-                <ButtonStyling type="submit">
-                    Login
-                </ButtonStyling>
-                <div>
-                    <span>New Here?</span>
-                    <AnchorStyling href=""> Create an Account</AnchorStyling>
-                </div>
-            </FormStyling>     
-        </div>   
-    )
+          <span>New Here?</span>
+          <AnchorStyling href=""> Create an Account</AnchorStyling>
+        </div>
+      </FormStyling>
+    </div>
+  );
 }

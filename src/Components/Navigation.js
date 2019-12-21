@@ -12,19 +12,19 @@ const NavStyling = styled.div`
 `;
 
 const LinkTag = styled(Link)`
-margin-right: 15px;
-color: white;
-text-decoration: none;
+  margin-right: 15px;
+  color: white;
+  text-decoration: none;
 `;
 
 export default function Navigation() {
-    return (
-      <NavStyling className="Nav">
-        <h1 className="Logo">LOGO</h1>
-        <div className="Nav-Links"> 
-          <LinkTag to="/signin">Sign In</LinkTag>
-          <LinkTag to="/signup">Sign Up</LinkTag>
-        </div>
-      </NavStyling>
-    );
+  return (
+    <NavStyling className="Nav">
+      <h1 className="Logo">LOGO</h1>
+      <div className="Nav-Links">
+        <LinkTag to="/signin">Sign In</LinkTag>
+        <LinkTag to="/signup">Sign Up</LinkTag>
+      </div>
+    </NavStyling>
+  );
 }

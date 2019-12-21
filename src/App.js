@@ -10,12 +10,12 @@ import { Route, Link } from "react-router-dom";
 function App() {
   return (
     <div className="App">
-      <Route exact path="/signin" component={SignInForm}/>
-      <Route exact path="/signup" component={SignUpForm}/>
-      <Route exact path="/onboarding" component={Onboarding}/>
-      <Route exact path="/onboardingtwo" component={OnboardingTwo}/>
-      <Footer/>
-    </div>    
+      <Route exact path="/signin" component={SignInForm} />
+      <Route exact path="/signup" component={SignUpForm} />
+      <Route exact path="/onboarding" component={Onboarding} />
+      <Route exact path="/onboardingtwo" component={OnboardingTwo} />
+      <Footer />
+    </div>
   );
 }
 
