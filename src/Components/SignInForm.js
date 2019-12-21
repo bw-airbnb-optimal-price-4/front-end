@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Navigation from "./Navigation";
 
 const FormStyling = styled.form`
     display: block;
@@ -30,25 +31,30 @@ const AnchorStyling = styled.a`
 
 export default function SignIn() {
     return (
-        <FormStyling>
-           <h1>Welcome Back!</h1>
-           <InputStyling placeholder="Email"
-           id="email"
-           type="text"
-           name="email"
-           />
-           <InputStyling placeholder="Password" 
-           id="password"
-           type="password"
-           name="password"
-           />
-           <ButtonStyling type="submit">
-               Login
-           </ButtonStyling>
-           <div>
-             <span>New Here?</span>
-             <AnchorStyling href=""> Create an Account</AnchorStyling>
-           </div>
-       </FormStyling> 
+        <div>
+            <Navigation/>
+            <FormStyling>
+                <h1>Welcome Back!</h1>
+                <InputStyling 
+                  placeholder="Email"
+                  id="email"                    
+                  type="text"
+                  name="email"
+                />
+                <InputStyling 
+                  placeholder="Password" 
+                  id="password"
+                  type="password"
+                  name="password"
+                />
+                <ButtonStyling type="submit">
+                    Login
+                </ButtonStyling>
+                <div>
+                    <span>New Here?</span>
+                    <AnchorStyling href=""> Create an Account</AnchorStyling>
+                </div>
+            </FormStyling>     
+        </div>   
     )
 }

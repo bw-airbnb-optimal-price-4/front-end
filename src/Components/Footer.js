@@ -16,12 +16,6 @@ const FooterLinks = styled.div`
   
 `;
 
-const AnchorTag = styled.a`
-  margin-right: 25px;
-  color: white;
-  text-decoration: none;
-`;
-
 const HrStyling = styled.hr`
   width: 75%;
   height: 0.1px;
@@ -31,12 +25,7 @@ const HrStyling = styled.hr`
 export default function Footer() {
     return(
       <FooterNav>
-          <FooterLinks className="Footer-Links">
-            <div>
-              <AnchorTag href="">Home</AnchorTag>
-              <AnchorTag href="">About Us</AnchorTag>
-              <AnchorTag href="">Contact</AnchorTag>
-            </div>          
+          <FooterLinks className="Footer-Links">         
             <h1>LOGO</h1>
           </FooterLinks>
           <HrStyling></HrStyling>

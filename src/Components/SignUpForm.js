@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Navigation from "./Navigation";
 
 const FormStyling = styled.form`
     display: block;
@@ -35,16 +36,13 @@ const HeaderStyling = styled.h1`
 
 export default function SignUpForm() {
     return (
-       <FormStyling>
+      <div>
+        <Navigation/>
+        <FormStyling>
            <HeaderStyling>
              <h1>Create an account and</h1>
              <h1> start pricing today.</h1>
            </HeaderStyling> 
-           <InputStyling placeholder="Full Name"
-           id="name"
-           type="text"
-           name="name"
-           />
            <InputStyling placeholder="Email"
            id="email"
            type="text"
@@ -55,6 +53,11 @@ export default function SignUpForm() {
            type="password"
            name="password"
            />
+           <InputStyling placeholder="ZipCode"
+           id="zipcode"
+           type="text"
+           name="zipcode"
+           />
            <ButtonStyling type="submit">
                Create Account
            </ButtonStyling>
@@ -62,6 +65,7 @@ export default function SignUpForm() {
              <span>Already have an account?</span>
              <AnchorStyling href=""> Login here</AnchorStyling>
            </div>
-       </FormStyling> 
+        </FormStyling> 
+      </div>  
     )
 }
