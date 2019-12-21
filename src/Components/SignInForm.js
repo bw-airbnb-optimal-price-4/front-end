@@ -1,5 +1,4 @@
 import React from "react";
-import Navigation from "./Navigation";
 import FormWithStyles from "./Form/FormWithStyles";
 import InputWithStyles from "./Form/InputWithStyles";
 import ButtonSubmit from "./Form/ButtonSubmit";
@@ -8,7 +7,6 @@ import LinkWithStyles from "./LinkWithStyles";
 const SignIn = () => {
   return (
     <div>
-      <Navigation />
       <h1>Welcome Back!</h1>
       <FormWithStyles>
         <InputWithStyles

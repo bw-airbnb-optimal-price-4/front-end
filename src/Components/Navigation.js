@@ -2,13 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const NavStyling = styled.div`
+const NavStyling = styled.nav`
   background-color: #1FA9AB;
   display: flex;
   flex-direction; row;
   align-items: center;
   justify-content: space-around;
   color: white;
+
+  .Logo {
+    font-size: 2em;
+  }
 `;
 
 const LinkTag = styled(Link)`

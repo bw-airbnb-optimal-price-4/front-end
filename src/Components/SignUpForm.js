@@ -1,20 +1,14 @@
 import React from "react";
-import Navigation from "./Navigation";
 import FormWithStyles from "./Form/FormWithStyles";
 import InputWithStyles from "./Form/InputWithStyles";
 import ButtonSubmit from "./Form/ButtonSubmit";
 import LinkWithStyles from "./LinkWithStyles";
 
-export default function SignUpForm() {
+const SignUpForm = () => {
   return (
     <div>
-      <Navigation />
+      <h1>Create an account and start pricing today</h1>
       <FormWithStyles>
-        <h1>
-          Create an account and
-          <br />
-          start pricing today.
-        </h1>
         <InputWithStyles
           placeholder="Email"
           id="email"
@@ -35,10 +29,12 @@ export default function SignUpForm() {
         />
         <ButtonSubmit type="submit">Create Account</ButtonSubmit>
         <div>
-          <span>Already have an account?</span>
-          <LinkWithStyles to="/"> Login here</LinkWithStyles>
+          <span>Already have an account?&nbsp;</span>
+          <LinkWithStyles to="/">Login here</LinkWithStyles>
         </div>
       </FormWithStyles>
     </div>
   );
-}
+};
+
+export default SignUpForm;

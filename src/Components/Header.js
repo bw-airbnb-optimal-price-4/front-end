@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const NavStyling = styled.div`
+const HeaderStyling = styled.header`
   background-color: #1FA9AB;
   display: flex;
   flex-direction; row;
@@ -10,13 +10,15 @@ const NavStyling = styled.div`
 `;
 
 const LogoStyling = styled.h1`
-  margin-left: 5%;
+  font-size: 2em;
 `;
 
-export default function Navigation() {
+const Header = () => {
   return (
-    <NavStyling className="Nav">
+    <HeaderStyling className="Header">
       <LogoStyling className="Logo">LOGO</LogoStyling>
-    </NavStyling>
+    </HeaderStyling>
   );
-}
+};
+
+export default Header;
