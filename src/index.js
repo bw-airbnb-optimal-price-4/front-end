@@ -15,19 +15,22 @@ const HookTest = () => {
     },
   });
 
+  // To fire request on initial render, use useEffect
+  // useEffect(() => {
+  //   handleRequest({ url: "/posts?_limit=10" });
+  // }, []); // eslint-disable-line <- might need to disable eslint --fix for react-hooks/exhaustive-deps
+
   return render({
     // do this to fire the request in response to an event
     initial: () => (
       <button
-        onClick={() =>
-          handleRequest("/posts?_limit=10", {
-            config: { method: "get" },
-          })
-        }
+        onClick={() => handleRequest({ url: "/posts?_limit=10" })}
       >
         Request
       </button>
     ),
+    // do this if firing request on page load
+    // initial: () => "Initial state",
     pending: () => "Loading...",
     error: err => JSON.stringify(err),
     success: data => JSON.stringify(data),
