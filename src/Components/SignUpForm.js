@@ -1,72 +1,44 @@
 import React from "react";
-import styled from "styled-components";
 import Navigation from "./Navigation";
-
-const FormStyling = styled.form`
-  display: block;
-  align-content: center;
-  padding-bottom: 10px;
-  margin: 8%;
-`;
-
-const InputStyling = styled.input`
-  width: 30%;
-  margin: 1% 12%;
-`;
-
-const ButtonStyling = styled.button`
-  border-radius: 6px;
-  border: none;
-  width: 20%;
-  height: 30px;
-  margin: 3% 25%;
-  color: white;
-  background-color: #19bd60;
-`;
-
-const AnchorStyling = styled.a`
-  text-decoration: none;
-  color: #1fa9ab;
-`;
-
-const HeaderStyling = styled.h1`
-  font-size: 18px;
-  line-height: 0.8;
-`;
+import FormWithStyles from "./Form/FormWithStyles";
+import InputWithStyles from "./Form/InputWithStyles";
+import ButtonSubmit from "./Form/ButtonSubmit";
+import AnchorWithStyles from "./AnchorWithStyles";
 
 export default function SignUpForm() {
   return (
     <div>
       <Navigation />
-      <FormStyling>
-        <HeaderStyling>
-          <h1>Create an account and</h1>
-          <h1> start pricing today.</h1>
-        </HeaderStyling>
-        <InputStyling
+      <FormWithStyles>
+        <h1>
+          Create an account and
+          <br />
+          start pricing today.
+        </h1>
+        <InputWithStyles
           placeholder="Email"
           id="email"
           type="text"
           name="email"
         />
-        <InputStyling
+        <InputWithStyles
           placeholder="Password"
           id="password"
           type="password"
           name="password"
         />
-        <InputStyling
+        <InputWithStyles
           placeholder="ZipCode"
           id="zipcode"
           type="text"
           name="zipcode"
         />
-        <ButtonStyling type="submit">Create Account</ButtonStyling>
+        <ButtonSubmit type="submit">Create Account</ButtonSubmit>
         <div>
           <span>Already have an account?</span>
-          <AnchorStyling href=""> Login here</AnchorStyling>
+          <AnchorWithStyles href=""> Login here</AnchorWithStyles>
         </div>
-      </FormStyling>
+      </FormWithStyles>
     </div>
   );
 }

@@ -1,58 +1,38 @@
 import React from "react";
-import styled from "styled-components";
 import Navigation from "./Navigation";
+import FormWithStyles from "./Form/FormWithStyles";
+import InputWithStyles from "./Form/InputWithStyles";
+import ButtonSubmit from "./Form/ButtonSubmit";
+import AnchorWithStyles from "./AnchorWithStyles";
 
-const FormStyling = styled.form`
-  display: block;
-  align-content: center;
-  padding-bottom: 10px;
-  margin: 8%;
-`;
-
-const InputStyling = styled.input`
-  width: 30%;
-  margin: 1% 12%;
-`;
-
-const ButtonStyling = styled.button`
-  border-radius: 6px;
-  border: none;
-  width: 15%;
-  height: 30px;
-  margin: 3% 25%;
-  color: white;
-  background-color: #19bd60;
-`;
-
-const AnchorStyling = styled.a`
-  text-decoration: none;
-  color: #1fa9ab;
-`;
-
-export default function SignIn() {
+const SignIn = () => {
   return (
     <div>
       <Navigation />
-      <FormStyling>
-        <h1>Welcome Back!</h1>
-        <InputStyling
+      <h1>Welcome Back!</h1>
+      <FormWithStyles>
+        <InputWithStyles
           placeholder="Email"
           id="email"
           type="text"
           name="email"
         />
-        <InputStyling
+        <InputWithStyles
           placeholder="Password"
           id="password"
           type="password"
           name="password"
         />
-        <ButtonStyling type="submit">Login</ButtonStyling>
+        <ButtonSubmit />
         <div>
-          <span>New Here?</span>
-          <AnchorStyling href=""> Create an Account</AnchorStyling>
+          <span>New Here?&nbsp;</span>
+          <AnchorWithStyles href="">
+            Create an Account
+          </AnchorWithStyles>
         </div>
-      </FormStyling>
+      </FormWithStyles>
     </div>
   );
-}
+};
+
+export default SignIn;
