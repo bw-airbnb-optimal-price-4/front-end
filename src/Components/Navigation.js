@@ -22,7 +22,7 @@ export default function Navigation() {
     <NavStyling className="Nav">
       <h1 className="Logo">LOGO</h1>
       <div className="Nav-Links">
-        <LinkTag to="/signin">Sign In</LinkTag>
+        <LinkTag to="/">Sign In</LinkTag>
         <LinkTag to="/signup">Sign Up</LinkTag>
       </div>
     </NavStyling>
