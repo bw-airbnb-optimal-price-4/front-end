@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import Footer from "../Components/Footer";
 import AuthenticatedApp from "./AuthenticatedApp";
 import UnauthenticatedApp from "./UnauthenticatedApp";
 
