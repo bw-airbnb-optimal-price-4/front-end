@@ -3,12 +3,9 @@ import AuthenticatedApp from "./AuthenticatedApp";
 import UnauthenticatedApp from "./UnauthenticatedApp";
 
 const App = () => {
-  return (
-    <>
-      <AuthenticatedApp />
-      <UnauthenticatedApp />
-    </>
-  );
+  const user = false;
+
+  return user ? <AuthenticatedApp /> : <UnauthenticatedApp />;
 };
 
 export default App;
