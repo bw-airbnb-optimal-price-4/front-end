@@ -19,6 +19,14 @@ const AuthProvider = ({ children }) => {
   );
 };
 
-const useAuth = useContext(AuthContext);
+const useAuth = () => {
+  const context = useContext(AuthContext);
+
+  if (context === undefined) {
+    throw new Error("Auth can only be used inside Auth Context");
+  }
+
+  return context;
+};
 
 export { AuthProvider, useAuth };
