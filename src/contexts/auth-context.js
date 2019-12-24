@@ -1,39 +1,24 @@
-import React, { createContext } from "react";
-import { StateProvider, useStateValue } from "react-conflux";
+import React, { useContext, createContext } from "react";
 import {
   useLocalStorage,
   useHttpRequest,
 } from "@jasonsbarr/custom-hooks";
-import { makeReducer } from "@jasonsbarr/reducer-utils";
 
 const AuthContext = createContext();
 
+const data = { user: null };
 const login = () => {};
 const register = () => {};
 const logout = () => {};
 
-const initialState = {
-  data: { user: null },
-  login,
-  register,
-  logout,
-};
-
-const reducer = makeReducer(
-  {
-    SET_AUTH: (state, payload) => ({ ...state, data: payload }),
-  },
-  initialState,
-);
-
 const AuthProvider = ({ children }) => {
   return (
-    <StateProvider reducer={reducer} stateContext={AuthContext}>
+    <AuthContext.Provider value={{ data, login, register, logout }}>
       {children}
-    </StateProvider>
+    </AuthContext.Provider>
   );
 };
 
-const useAuth = useStateValue(AuthContext);
+const useAuth = useContext(AuthContext);
 
 export { AuthProvider, useAuth };
