@@ -12,6 +12,7 @@ const users = Array.from(new Array(15), (_, i) => ({
   last_name: faker.name.lastName(),
   city: "Austin",
   state: "TX",
+  zipcode: 78722,
   profile_img: faker.internet.avatar(),
   id: i + 1,
 }));
