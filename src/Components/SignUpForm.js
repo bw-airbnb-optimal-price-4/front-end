@@ -1,50 +1,62 @@
-import React, { useState } from "react";
+import React from "react";
+import useFormState from "../hooks/use-form-state";
+import { CenteredLayout } from "../views/layouts";
 import FormWithStyles from "./Form/FormWithStyles";
 import InputWithStyles from "./Form/InputWithStyles";
 import ButtonSubmit from "./Form/ButtonSubmit";
 import LinkWithStyles from "./LinkWithStyles";
 
-const SignUpForm = ({ handleSubmit }) => {
-  const [formState, setFormState] = useState({
-    email: "",
-    password: "",
-    zipcode: "",
-  });
-
-  const handleChange = event => {
-    setFormState({
-      ...formState,
-      [event.target.name]: event.target.value,
-    });
-  };
+const SignUpForm = () => {
+  const [state, handleOnChange, handleOnSubmit] = useFormState(
+    {
+      email: { value: "", error: "" },
+      password: { value: "", error: "" },
+      zipcode: { value: "", error: "" },
+    },
+    {
+      email: { required: true, email: true },
+      password: { required: true, min: 8 },
+      zipcode: { required: true, min: 5, max: 5 },
+    },
+    console.log,
+  );
 
   return (
-    <div>
+    <CenteredLayout>
       <h1>Create an account and start pricing today</h1>
-      <FormWithStyles onSubmit={handleSubmit}>
+      <FormWithStyles onSubmit={handleOnSubmit}>
+        {state.email.error && (
+          <p style={{ color: "red" }}>{state.email.error}</p>
+        )}
         <InputWithStyles
           placeholder="Email"
           id="email"
           type="text"
           name="email"
-          value={formState.email}
-          onChange={handleChange}
+          value={state.email.value}
+          onChange={handleOnChange}
         />
+        {state.password.error && (
+          <p style={{ color: "red" }}>{state.password.error}</p>
+        )}
         <InputWithStyles
           placeholder="Password"
           id="password"
           type="password"
           name="password"
-          value={formState.password}
-          onChange={handleChange}
+          value={state.password.value}
+          onChange={handleOnChange}
         />
+        {state.zipcode.error && (
+          <p style={{ color: "red" }}>{state.zipcode.error}</p>
+        )}
         <InputWithStyles
           placeholder="ZipCode"
           id="zipcode"
-          type="text"
+          type="number"
           name="zipcode"
-          value={formState.zipcode}
-          onChange={handleChange}
+          value={state.zipcode.value}
+          onChange={handleOnChange}
         />
         <ButtonSubmit type="submit">Create Account</ButtonSubmit>
         <div>
@@ -52,7 +64,7 @@ const SignUpForm = ({ handleSubmit }) => {
           <LinkWithStyles to="/">Login here</LinkWithStyles>
         </div>
       </FormWithStyles>
-    </div>
+    </CenteredLayout>
   );
 };
 
