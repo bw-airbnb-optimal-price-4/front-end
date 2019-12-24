@@ -37,7 +37,7 @@ const SignIn = ({ handleSubmit }) => {
           value={formState.password}
           onChange={handleChange}
         />
-        <ButtonSubmit />
+        <ButtonSubmit>Login</ButtonSubmit>
         <div>
           <span>New Here?&nbsp;</span>
           <LinkWithStyles to="/signup">
