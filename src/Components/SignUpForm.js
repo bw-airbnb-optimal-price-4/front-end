@@ -1,5 +1,6 @@
 import React from "react";
 import useFormState from "../hooks/use-form-state";
+import { useAuth } from "../contexts/auth-context";
 import { CenteredLayout } from "../views/layouts";
 import FormWithStyles from "./Form/FormWithStyles";
 import InputWithStyles from "./Form/InputWithStyles";
@@ -7,6 +8,7 @@ import ButtonSubmit from "./Form/ButtonSubmit";
 import LinkWithStyles from "./LinkWithStyles";
 
 const SignUpForm = () => {
+  const { data, register } = useAuth();
   const [state, handleOnChange, handleOnSubmit] = useFormState(
     {
       email: { value: "", error: "" },
@@ -18,7 +20,7 @@ const SignUpForm = () => {
       password: { required: true, min: 8 },
       zipcode: { required: true, min: 5, max: 5 },
     },
-    console.log,
+    register,
   );
 
   return (

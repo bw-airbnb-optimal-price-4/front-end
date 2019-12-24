@@ -7,9 +7,12 @@ import {
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
+  const [token, setToken] = useLocalStorage("auth_token", "");
   const data = { user: null };
   const login = () => {};
-  const register = () => {};
+  const register = formData => {
+    console.log(formData);
+  };
   const logout = () => {};
 
   return (
