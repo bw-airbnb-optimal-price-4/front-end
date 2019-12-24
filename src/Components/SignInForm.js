@@ -1,25 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import FormWithStyles from "./Form/FormWithStyles";
 import InputWithStyles from "./Form/InputWithStyles";
 import ButtonSubmit from "./Form/ButtonSubmit";
 import LinkWithStyles from "./LinkWithStyles";
 
-const SignIn = () => {
+const SignIn = ({ handleSubmit }) => {
+  const [formState, setFormState] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleChange = event => {
+    setFormState({
+      ...formState,
+      [event.target.name]: event.target.value,
+    });
+  };
+
   return (
     <div>
       <h1>Welcome Back!</h1>
-      <FormWithStyles>
+      <FormWithStyles onSubmit={handleSubmit}>
         <InputWithStyles
           placeholder="Email"
           id="email"
           type="text"
           name="email"
+          value={formState.email}
+          onChange={handleChange}
         />
         <InputWithStyles
           placeholder="Password"
           id="password"
           type="password"
           name="password"
+          value={formState.password}
+          onChange={handleChange}
         />
         <ButtonSubmit />
         <div>
