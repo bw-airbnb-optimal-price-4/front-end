@@ -6,12 +6,12 @@ import {
 
 const AuthContext = createContext();
 
-const data = { user: null };
-const login = () => {};
-const register = () => {};
-const logout = () => {};
-
 const AuthProvider = ({ children }) => {
+  const data = { user: null };
+  const login = () => {};
+  const register = () => {};
+  const logout = () => {};
+
   return (
     <AuthContext.Provider value={{ data, login, register, logout }}>
       {children}
