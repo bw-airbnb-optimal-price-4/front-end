@@ -9,7 +9,9 @@ const FormStyling = styled.form`
 `;
 
 const FormWithStyles = ({ handleSubmit, children, ...props }) => (
-  <FormStyling onSubmit={handleSubmit}>{children}</FormStyling>
+  <FormStyling onSubmit={handleSubmit} {...props}>
+    {children}
+  </FormStyling>
 );
 
 export default FormWithStyles;
