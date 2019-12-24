@@ -11,8 +11,10 @@ const ButtonStyling = styled.button`
   background-color: #19bd60;
 `;
 
-const ButtonSubmit = () => (
-  <ButtonStyling type="submit">Login</ButtonStyling>
+const ButtonSubmit = ({ children, ...props }) => (
+  <ButtonStyling type="submit" {...props}>
+    {children}
+  </ButtonStyling>
 );
 
 export default ButtonSubmit;
