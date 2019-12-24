@@ -8,6 +8,8 @@ const middlewares = server.defaults();
 const port = process.env.PORT || 5000;
 
 const rules = auth.rewriter({
+  users: 600,
+  listings: 600,
   "/auth/register": "/register",
   "/auth/login": "/login",
 });
