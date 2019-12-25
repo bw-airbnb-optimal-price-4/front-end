@@ -8,7 +8,9 @@ const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
   const [data] = useUser();
 
-  const login = () => {};
+  const login = formData => {
+    AuthClient.login(formData).then(() => goHome());
+  };
 
   const register = formData => {
     AuthClient.register(formData).then(() => goHome());

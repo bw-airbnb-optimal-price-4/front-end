@@ -39,6 +39,19 @@ export const fetchUserFromToken = async token => {
   return { token, ...data };
 };
 
+export const login = form => {
+  const config = {
+    ...axiosConfig,
+    method: "post",
+    url: "/auth/login",
+    data: JSON.stringify(form),
+  };
+
+  return Axios(config)
+    .then(({ data }) => handleUserResponse(data.accessToken))
+    .catch(console.error);
+};
+
 export const register = form => {
   const config = {
     ...axiosConfig,

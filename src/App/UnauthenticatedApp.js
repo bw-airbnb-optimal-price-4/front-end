@@ -5,8 +5,8 @@ import {
   Redirect,
   Switch,
 } from "react-router-dom";
-import { SignIn } from "../views";
 import SignUpForm from "../Components/SignUpForm";
+import SignInForm from "../Components/SignInForm";
 
 const UnauthenticatedApp = () => (
   <Router>
@@ -15,7 +15,7 @@ const UnauthenticatedApp = () => (
         <Redirect to="/signin" />
       </Route>
       <Route exact path="/signin">
-        <SignIn />
+        <SignInForm />
       </Route>
       <Route exact path="/signup">
         <SignUpForm />
