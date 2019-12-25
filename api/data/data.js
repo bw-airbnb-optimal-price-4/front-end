@@ -12,6 +12,7 @@ const users = Array.from(new Array(15), (_, i) => ({
   last_name: faker.name.lastName(),
   city: "Austin",
   state: "TX",
+  zipcode: 78722,
   profile_img: faker.internet.avatar(),
   id: i + 1,
 }));
@@ -54,5 +55,5 @@ const listings = parse(
 
 fs.writeFileSync(
   join(__dirname, "./db.json"),
-  JSON.stringify({ users, listings, predicted_price: 198 }, null, 2),
+  JSON.stringify({ users, listings, prediction: { price: 197 } }),
 );

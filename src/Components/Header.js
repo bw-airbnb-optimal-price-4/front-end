@@ -1,22 +1,27 @@
 import React from "react";
 import styled from "styled-components";
+import Navigation from "./Navigation";
 
-const NavStyling = styled.div`
+const HeaderStyling = styled.header`
   background-color: #1FA9AB;
   display: flex;
   flex-direction; row;
-  align-items: left;
+  align-items: center;
+  justify-content: space-around;
   color: white;
 `;
 
 const LogoStyling = styled.h1`
-  margin-left: 5%;
+  font-size: 2em;
 `;
 
-export default function Navigation() {
-    return (
-      <NavStyling className="Nav">
-        <LogoStyling className="Logo">LOGO</LogoStyling>
-      </NavStyling>
-    );
-}
+const Header = () => {
+  return (
+    <HeaderStyling className="Header">
+      <LogoStyling className="Logo">LOGO</LogoStyling>
+      <Navigation />
+    </HeaderStyling>
+  );
+};
+
+export default Header;
