@@ -12,8 +12,9 @@ const Navigation = () => {
   return (
     <nav className="Nav">
       <div className="Nav-Links">
-        <LinkTag to="/">Sign In</LinkTag>
+        <LinkTag to="/signin">Sign In</LinkTag>
         <LinkTag to="/signup">Sign Up</LinkTag>
+        <LinkTag to="/logout">Logout</LinkTag>
       </div>
     </nav>
   );
