@@ -4,6 +4,7 @@ import { useUser } from "../contexts/user-context";
 import { setUser, setPending } from "../reducers/user-reducer";
 import AuthenticatedApp from "./AuthenticatedApp";
 import UnauthenticatedApp from "./UnauthenticatedApp";
+import { HalfCircleSpinner } from "react-epic-spinners";
 
 const App = () => {
   const [{ user }, dispatch] = useUser();
@@ -21,7 +22,7 @@ const App = () => {
   }, []); // eslint-disable-line
 
   return user === "pending" ? (
-    "Fetching user..."
+    <HalfCircleSpinner color="#1FA9AB" />
   ) : user ? (
     <AuthenticatedApp />
   ) : (
