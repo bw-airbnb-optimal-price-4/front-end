@@ -1,12 +1,26 @@
 import React from "react";
-import { Route, BrowserRouter as Router } from "react-router-dom";
+import {
+  Route,
+  BrowserRouter as Router,
+  Redirect,
+  Switch,
+} from "react-router-dom";
 import { SignIn } from "../views";
 import SignUpForm from "../Components/SignUpForm";
 
 const UnauthenticatedApp = () => (
   <Router>
-    <Route exact path="/" component={SignIn} />
-    <Route exact path="/signup" component={SignUpForm} />
+    <Switch>
+      <Route exact path="/">
+        <Redirect to="/signin" />
+      </Route>
+      <Route exact path="/signin">
+        <SignIn />
+      </Route>
+      <Route exact path="/signup">
+        <SignUpForm />
+      </Route>
+    </Switch>
   </Router>
 );
 
