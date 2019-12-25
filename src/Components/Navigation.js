@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useUser } from "../contexts/user-context";
 
 const LinkTag = styled(Link)`
   margin-right: 15px;
@@ -9,12 +10,19 @@ const LinkTag = styled(Link)`
 `;
 
 const Navigation = () => {
+  const [{ user }] = useUser();
+
   return (
     <nav className="Nav">
       <div className="Nav-Links">
-        <LinkTag to="/signin">Sign In</LinkTag>
-        <LinkTag to="/signup">Sign Up</LinkTag>
-        <LinkTag to="/logout">Logout</LinkTag>
+        {user ? (
+          <LinkTag to="/logout">Logout</LinkTag>
+        ) : (
+          <>
+            <LinkTag to="/signin">Sign In</LinkTag>
+            <LinkTag to="/signup">Sign Up</LinkTag>
+          </>
+        )}
       </div>
     </nav>
   );

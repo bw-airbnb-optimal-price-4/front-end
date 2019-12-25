@@ -8,17 +8,22 @@ const FooterNav = styled.div`
 `;
 
 const FooterLinks = styled.div`
-  
+
   display: flex;
   flex-direction; row;
   align-items: center;
   justify-content: space-around;
-  
+
 `;
 
 const HrStyling = styled.hr`
   width: 75%;
   height: 0.1px;
+`;
+
+const Copy = styled.p`
+  margin: 0;
+  text-align: center;
 `;
 
 export default function Footer() {
@@ -28,7 +33,9 @@ export default function Footer() {
         <h1>LOGO</h1>
       </FooterLinks>
       <HrStyling></HrStyling>
-      <small>&copy;Copyright 2019</small>
+      <Copy>
+        <small>&copy;Copyright 2019</small>
+      </Copy>
     </FooterNav>
   );
 }

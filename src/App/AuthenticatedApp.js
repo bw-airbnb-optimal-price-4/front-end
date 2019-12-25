@@ -8,11 +8,17 @@ import {
 import Onboarding from "../Components/Onboarding/Onboarding";
 import OnboardingTwo from "../Components/Onboarding/OnboardingTwo";
 import Logout from "../Components/Logout";
+import Dashboard from "../Components/Dashboard";
 
 const AuthenticatedApp = () => (
   <Router>
     <Switch>
-      <Route exact path="/" render={() => "To Dashboard"} />
+      <Route exact path="/">
+        <Redirect to="/dashboard" />
+      </Route>
+      <Route path="/dashboard">
+        <Dashboard />
+      </Route>
       <Route path="/onboarding">
         <Onboarding />
       </Route>
