@@ -71,9 +71,14 @@ const useFormState = (
 
     setState(obj);
 
-    // If no errors found in form values, use submit callback
+    // If no errors found in form values, use
+    // submit callback with form field values
     if (!fields.find(field => obj[field].error)) {
-      callback(obj);
+      const values = Object.keys(obj).reduce((acc, key) => {
+        acc[key] = obj[key].value;
+        return acc;
+      }, {});
+      callback(values);
     }
   };
 

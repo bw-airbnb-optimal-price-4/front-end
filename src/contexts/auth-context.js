@@ -1,19 +1,22 @@
 import React, { useContext, createContext } from "react";
-import {
-  useLocalStorage,
-  useHttpRequest,
-} from "@jasonsbarr/custom-hooks";
+import * as AuthClient from "../utils/auth-client";
+import { goHome } from "../utils/location";
+import { useUser } from "./user-context";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [token, setToken] = useLocalStorage("auth_token", "");
-  const data = { user: null };
+  const [data] = useUser();
+
   const login = () => {};
+
   const register = formData => {
-    console.log(formData);
+    AuthClient.register(formData).then(() => goHome());
   };
-  const logout = () => {};
+
+  const logout = () => {
+    AuthClient.logout();
+  };
 
   return (
     <AuthContext.Provider value={{ data, login, register, logout }}>

@@ -8,7 +8,7 @@ import ButtonSubmit from "./Form/ButtonSubmit";
 import LinkWithStyles from "./LinkWithStyles";
 
 const SignUpForm = () => {
-  const { data, register } = useAuth();
+  const { register } = useAuth();
   const [state, handleOnChange, handleOnSubmit] = useFormState(
     {
       email: { value: "", error: "" },
