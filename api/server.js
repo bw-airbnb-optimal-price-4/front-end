@@ -12,6 +12,7 @@ const rules = auth.rewriter({
   listings: 600,
   "/auth/register": "/register",
   "/auth/login": "/login",
+  "/user/:id/listings": "/listings?user_id=:id",
 });
 
 app.db = router.db;
