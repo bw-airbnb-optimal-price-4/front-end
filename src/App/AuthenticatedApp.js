@@ -7,6 +7,9 @@ import {
 } from "react-router-dom";
 import Onboarding from "../Components/Onboarding/Onboarding";
 import OnboardingTwo from "../Components/Onboarding/OnboardingTwo";
+import OnboardingThree from "../Components/Onboarding/OnboardingThree";
+import OnboardingFour from "../Components/Onboarding/OnboardingFour";
+import OnboardingFive from "../Components/Onboarding/OnboardingFive";
 import Logout from "../Components/Logout";
 import Dashboard from "../Components/Dashboard";
 
@@ -24,6 +27,15 @@ const AuthenticatedApp = () => (
       </Route>
       <Route path="/onboardingtwo">
         <OnboardingTwo />
+      </Route>
+      <Route path="/onboardingthree">
+        <OnboardingThree />
+      </Route>
+      <Route path="/onboardingfour">
+        <OnboardingFour />
+      </Route>
+      <Route path="/onboardingfive">
+        <OnboardingFive />
       </Route>
       <Route path="/logout">
         <Logout />
