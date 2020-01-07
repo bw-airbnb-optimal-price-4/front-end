@@ -3,47 +3,48 @@ import styled from "styled-components";
 import Header from "../Header";
 
 const DivStyling = styled.div`
-  margin: 10%;
+  margin: 5% 0% 3%;
+  text-align: center;
 `;
 
 const ButtonStyling = styled.button`
   border-radius: 6px;
   border: none;
-  width: 15%;
+  width: 16%;
   height: 30px;
-  margin: 10% 25% 10% 25%;
+  margin: 5% 42% 5% 42%;
   color: white;
   background-color: #19bd60;
 `;
 
 const InputStyling = styled.input`
-  margin: 2% 10%;
+  margin: 2% 30%;
   width: 40%;
 `;
 
 const CityStyling = styled.input`
-  margin: 2% 0% 2% 10%;
+  margin: 2% 0% 2% 30%;
   width: 30%;
 `;
 
 const StateStyling = styled.input`
   display: inline-block;
-  margin: 2% 10% 2% 0%;
-  width: 10%;
+  margin: 2% 29.7% 2% 0%;
+  width: 9.8%;
 `;
 
 const SelectStyling = styled.select`
-  margin: 2% 10%;
-  width: 41%;
+  margin: 2% 30%;
+  width: 40.3%;
 `;
 
-export default function Onboarding() {
+export default function OnboardingTwo() {
   return (
     <div>
       <Header />
       <DivStyling>
         <h2>Obtain your first optimal price!</h2>
-        <h3>Step 1 of 2</h3>
+        <h3>Step 1 of 3</h3>
       </DivStyling>
       <form>
         <InputStyling
