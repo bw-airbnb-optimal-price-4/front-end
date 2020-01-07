@@ -44,7 +44,7 @@ export default function OnboardingTwo() {
       <Header />
       <DivStyling>
         <h2>Obtain your first optimal price!</h2>
-        <h3>Step 1 of 2</h3>
+        <h3>Step 1 of 3</h3>
       </DivStyling>
       <form>
         <InputStyling

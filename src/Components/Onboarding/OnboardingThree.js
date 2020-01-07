@@ -34,7 +34,7 @@ export default function OnboardingThree() {
       <Header />
       <DivStyling>
         <h2>Obtain your first optimal price!</h2>
-        <h3>Step 2 of 2</h3>
+        <h3>Step 2 of 3</h3>
       </DivStyling>
       <FormStyling>
         <div>
@@ -94,7 +94,7 @@ export default function OnboardingThree() {
           </SelectStyling>
         </div>
       </FormStyling>
-      <ButtonStyling>Get your quote</ButtonStyling>
+      <ButtonStyling>Step 3</ButtonStyling>
     </div>
   );
 }

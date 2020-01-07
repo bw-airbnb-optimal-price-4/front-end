@@ -4,7 +4,7 @@ import Header from "../Header";
 
 const DivStyling = styled.div`
   text-align: center;
-  margin: 10% 0%;
+  margin: 15% 0% 5%;
 `;
 
 const ButtonStyling = styled.button`
