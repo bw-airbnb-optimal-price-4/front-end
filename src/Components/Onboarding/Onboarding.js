@@ -3,15 +3,17 @@ import styled from "styled-components";
 import Header from "../Header";
 
 const DivStyling = styled.div`
-  margin: 10%;
+  text-align: center;
+  margin: 15% 0% 5%;
 `;
 
 const ButtonStyling = styled.button`
+  
   border-radius: 6px;
   border: none;
-  width: 15%;
+  width: 16%;
   height: 30px;
-  margin: 0% 25% 10% 25%;
+  margin: 0% 42% 10% 42%;
   color: white;
   background-color: #19bd60;
 `;
