@@ -13,7 +13,7 @@ const users = Array.from(new Array(15), (_, i) => ({
   city: "Austin",
   state: "TX",
   zipcode: 78722,
-  profile_img: faker.internet.avatar(),
+  profile_image: faker.internet.avatar(),
   id: i + 1,
 }));
 
@@ -50,6 +50,20 @@ const listings = parse(
     obj["id"] = i + 1;
     obj["user_id"] = faker.random.number({ min: 1, max: 15 });
   });
+
+  obj["neighborhood"] = obj["neighbourhood"];
+  obj["accommodates"] = Number(obj["accommodates"]);
+  obj["bedrooms"] = Number(obj["bedrooms"]);
+  obj["bathrooms"] = Number(obj["bathrooms"]);
+  obj["beds"] = Number(obj["beds"]);
+  obj["zipcode"] = Number(obj["zipcode"]);
+  obj["latitude"] = Number(obj["latitude"]);
+  obj["longitude"] = Number(obj["longitude"]);
+  delete obj.neighbourhood;
+  obj["amenities"] = obj["amenities"]
+    .replace(/\}|\{|"/g, "")
+    .split(",");
+  obj["price"] = parseInt(obj["price"].split("$")[1].trim());
   return [...acc, obj];
 }, []);
 
@@ -57,3 +71,8 @@ fs.writeFileSync(
   join(__dirname, "./db.json"),
   JSON.stringify({ users, listings, prediction: { price: 197 } }),
 );
+
+/**
+ * TODO: add neighborhoods, property_types
+ * TODO: correctly format listing data
+ */
