@@ -16,11 +16,21 @@ const FormStyling = styled.form`
 const ButtonStyling = styled.button`
   border-radius: 6px;
   border: none;
-  width: 16%;
+  width: 10%;
   height: 30px;
-  margin: 5% 42% 5% 42%;
+  margin: 5% 3% 5% 37%;
   color: white;
   background-color: #19bd60;
+`;
+
+const BackButtonStyling = styled.button`
+  border-radius: 6px;
+  border: none;
+  width: 10%;
+  height: 30px;
+  margin: 5% 37% 5% 3%;
+  color: black;
+  background-color: #cccccc;
 `;
 
 const SelectStyling = styled.select`
@@ -32,6 +42,11 @@ export class OnboardingThree extends Component {
   continue = e => {
     e.preventDefault();
     this.props.nextStep();  
+  }
+
+  back = e => {
+    e.preventDefault();
+    this.props.prevStep();  
   }
 
   render() {
@@ -110,6 +125,7 @@ export class OnboardingThree extends Component {
           </div>
         </FormStyling>
         <ButtonStyling onClick={this.continue}>Step 3</ButtonStyling>
+        <BackButtonStyling onClick={this.back}>Back</BackButtonStyling>
       </div>
     );
   }

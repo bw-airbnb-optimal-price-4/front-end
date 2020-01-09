@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Header from "../Header";
 
 const DivStyling = styled.div`
-  margin: 5% 0% 3%;
+  margin: 3% 0% 3%;
   text-align: center;
 `;
 
@@ -28,17 +28,32 @@ const AmenitiesStyling = styled.div`
 const ButtonStyling = styled.button`
   border-radius: 6px;
   border: none;
-  width: 16%;
+  width: 10%;
   height: 30px;
-  margin: 5% 42% 0% 42%;
+  margin: 5% 3% 0% 37%;
   color: white;
   background-color: #19bd60;
+`;
+
+const BackButtonStyling = styled.button`
+  border-radius: 6px;
+  border: none;
+  width: 10%;
+  height: 30px;
+  margin: 5% 37% 0% 3%;
+  color: black;
+  background-color: #cccccc;
 `;
 
 export class OnboardingFour extends Component {
   continue = e => {
     e.preventDefault();
     this.props.nextStep();  
+  }
+
+  back = e => {
+    e.preventDefault();
+    this.props.prevStep();  
   }
 
   render() {
@@ -102,6 +117,7 @@ export class OnboardingFour extends Component {
             </AmenitiesStyling>
           </form>
           <ButtonStyling onClick={this.continue}>Get your quote</ButtonStyling>
+          <BackButtonStyling onClick={this.back}>Back</BackButtonStyling> 
         </DivStyling>
       </div>
     );

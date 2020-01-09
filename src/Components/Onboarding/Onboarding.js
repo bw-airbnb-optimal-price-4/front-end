@@ -5,9 +5,7 @@ import OnboardingThree from "./OnboardingThree";
 import OnboardingFour from "./OnboardingFour";
 import OnboardingFive from "./OnboardingFive";
 import OnboardingSix from "./OnboardingSix";
-import OnboardingSixNo from "./OnboardingSixNo";
 import OnboardingSeven from "./OnboardingSeven";
-import OnboardingEight from "./OnboardingEight";
 
 export class Onboarding extends Component {
   state = {
@@ -22,7 +20,8 @@ export class Onboarding extends Component {
     beds: "",
     bathrooms: "",
     description: "",
-    propertyPicture: ""
+    propertyPicture: "",
+    listingPrice: ""
   }
 
   // Proceed to next step
@@ -33,6 +32,14 @@ export class Onboarding extends Component {
     });
   };
 
+  // Go back to prev step
+  prevStep = () => {
+    const { step } = this.state;
+    this.setState({
+      step: step - 1
+    });
+  }
+
   // Handle fields change
   handleChange = input => e => {
     this.setState({ [input]: e.target.value});
@@ -40,8 +47,8 @@ export class Onboarding extends Component {
 
   render() {
     const { step } = this.state;
-    const { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture} = this.state;
-    const values = { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture };
+    const { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture, listingPrice} = this.state;
+    const values = { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture, listingPrice };
 
     switch(step) {
       case 1:
@@ -56,6 +63,7 @@ export class Onboarding extends Component {
         return (      
           <OnboardingTwo 
           nextStep={this.nextStep}
+          prevStep={this.prevStep}
           handleChange={this.handleChange}
           values={values}
           />
@@ -64,6 +72,7 @@ export class Onboarding extends Component {
         return (    
           <OnboardingThree 
           nextStep={this.nextStep}
+          prevStep={this.prevStep}
           handleChange={this.handleChange}
           values={values}
           />            
@@ -72,29 +81,29 @@ export class Onboarding extends Component {
         return (      
           <OnboardingFour 
           nextStep={this.nextStep}
+          prevStep={this.prevStep}
           handleChange={this.handleChange}
           values={values}/>
         )
       case 5:
         return (
-          <OnboardingFive />            
+          <OnboardingFive 
+          nextStep={this.nextStep}
+          prevStep={this.prevStep}
+          handleChange={this.handleChange}
+          values={values}/>            
         )    
       case 6:
         return (      
-          <OnboardingSix />
-        )    
+          <OnboardingSix 
+          nextStep={this.nextStep}
+          prevStep={this.prevStep}
+          values={values}/>
+        )      
       case 7:
         return (      
-          <OnboardingSixNo />
-        )    
-      case 8:
-        return (      
           <OnboardingSeven />
-        )    
-      case 9:
-        return (      
-          <OnboardingEight />
-        )    
+        )      
       }
     }
   }
