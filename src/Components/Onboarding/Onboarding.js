@@ -21,7 +21,8 @@ export class Onboarding extends Component {
     bathrooms: "",
     description: "",
     propertyPicture: "",
-    listingPrice: ""
+    listingPrice: "",
+    optimalPrice: ""
   }
 
   // Proceed to next step
@@ -47,8 +48,8 @@ export class Onboarding extends Component {
 
   render() {
     const { step } = this.state;
-    const { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture, listingPrice} = this.state;
-    const values = { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture, listingPrice };
+    const { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture, listingPrice, optimalPrice} = this.state;
+    const values = { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture, listingPrice, optimalPrice };
 
     switch(step) {
       case 1:

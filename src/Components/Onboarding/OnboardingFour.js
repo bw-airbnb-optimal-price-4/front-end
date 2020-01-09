@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Header from "../Header";
 
 const DivStyling = styled.div`
-  margin: 3% 0% 3%;
+  margin: 5% 0% 3%;
   text-align: center;
 `;
 

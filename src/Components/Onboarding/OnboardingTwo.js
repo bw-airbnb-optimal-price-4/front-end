@@ -18,24 +18,24 @@ const ButtonStyling = styled.button`
 `;
 
 const InputStyling = styled.input`
-  margin: 2% 30%;
-  width: 40%;
+  margin: 2% 38%;
+  width: 24%;
 `;
 
 const CityStyling = styled.input`
-  margin: 2% 0% 2% 30%;
-  width: 30%;
+  margin: 2% 0% 2% 38%;
+  width: 18%;
 `;
 
 const StateStyling = styled.input`
   display: inline-block;
-  margin: 2% 29.7% 2% 0%;
-  width: 9.8%;
+  margin: 2% 37.5% 2% 0%;
+  width: 5.9%;
 `;
 
 const SelectStyling = styled.select`
-  margin: 2% 30%;
-  width: 40.3%;
+  margin: 2% 38%;
+  width: 24.4%;
 `;
 
 export class OnboardingTwo extends Component {
@@ -93,10 +93,10 @@ export class OnboardingTwo extends Component {
             <option value="" disabled selected hidden>
               Choose Property Type
             </option>
-            <option value="house">House</option>
-            <option value="town house">Town House</option>
-            <option value="apartment">Apartment</option>
-            <option value="room">Room</option>
+            <option value="House">House</option>
+            <option value="Town House">Town House</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Room">Room</option>
           </SelectStyling>
         </form>
         <ButtonStyling onClick={this.continue}>Step 2</ButtonStyling>

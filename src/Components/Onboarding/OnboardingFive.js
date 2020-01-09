@@ -8,6 +8,10 @@ const DivStyling = styled.div`
   line-height: 4.0;
 `;
 
+const OptimalPriceStyling = styled.h2`
+  color: #19bd60;
+`;
+
 const SecondDivStyling = styled.div`
   text-align: center;
   margin: 5%;
@@ -51,7 +55,7 @@ export class OnboardingFive extends Component {
           <Header />
           <DivStyling>
             <h2>The optimal price is:</h2>
-            <h3>"$259.00"</h3>
+            <OptimalPriceStyling>$259.00</OptimalPriceStyling>
             <h4>Listing at this price would allow you to receive "$7,770.00" a month on average at full occupancy.</h4>
           <SecondDivStyling>
             <h4>What price do you wish to list your property for?</h4>

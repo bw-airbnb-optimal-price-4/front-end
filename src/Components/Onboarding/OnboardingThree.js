@@ -5,7 +5,6 @@ import Header from "../Header";
 const DivStyling = styled.div`
   margin: 5% 0% 3%;
   text-align: center;
-  line-height: 2.5;
 `;
 
 const FormStyling = styled.form`
@@ -34,7 +33,7 @@ const BackButtonStyling = styled.button`
 `;
 
 const SelectStyling = styled.select`
-  margin: 2% 5%;
+  margin: 3% 5%;
   width: 4%;
 `;
 
