@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import Header from "../Header";
 
@@ -32,36 +32,40 @@ const LabelStyling = styled.div`
   width: 20%;
 `;
 
-export default function OnboardingSeven() {
-  return (
-    <div>
-      <Header />
-      <DivStyling>
-        <h2>Tell us about yourself</h2>
-      </DivStyling>
-      <form>
-        <InputStyling
-          placeholder="First Name"
-          id="first-name"
-          type="text"
-          name="first name"
-        />
-        <InputStyling
-          placeholder="Last Name"
-          id="last-name"
-          type="text"
-          name="last-name"
-        />
-        <DOBStyling type="date" name="dob"/>
-        <LabelStyling>
-            <label>Profile picture:
-                <input type="file"
-                id="profile" name="profile"
-                accept="image/png, image/jpeg"/>
-            </label>
-        </LabelStyling>
-      </form>
-      <ButtonStyling>Submit</ButtonStyling>
-    </div>
-  );
+export class OnboardingSeven extends Component {
+  render() {
+    return (
+      <div>
+        <Header />
+        <DivStyling>
+          <h2>Tell us about yourself</h2>
+        </DivStyling>
+        <form>
+          <InputStyling
+            placeholder="First Name"
+            id="first-name"
+            type="text"
+            name="first name"
+          />
+          <InputStyling
+            placeholder="Last Name"
+            id="last-name"
+            type="text"
+            name="last-name"
+          />
+          <DOBStyling type="date" name="dob"/>
+          <LabelStyling>
+              <label>Profile picture:
+                  <input type="file"
+                  id="profile" name="profile"
+                  accept="image/png, image/jpeg"/>
+              </label>
+          </LabelStyling>
+        </form>
+        <ButtonStyling>Submit</ButtonStyling>
+      </div>
+    );
+  }
 }
+
+export default OnboardingSeven;

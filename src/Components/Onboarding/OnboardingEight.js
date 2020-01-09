@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import Header from "../Header";
 
@@ -18,19 +18,23 @@ const ButtonStyling = styled.button`
   background-color: #19bd60;
 `;
 
-export default function OnboardingSeven() {
-  return (
-    <div>
-      <Header />
-      <DivStyling>
-        <h1>Congratulations!</h1>
-        <h2>Your listing was completed!</h2>
-        <br/>
-        <h3>Would you like to add a new listing or navigate to your dashboard?</h3>
-        <ButtonStyling>New Listing</ButtonStyling>
-        <ButtonStyling>Dashboard</ButtonStyling>
-      </DivStyling>
-      
-    </div>
-  );
+export class OnboardingEight extends Component {
+  render() {
+    return (
+      <div>
+        <Header />
+        <DivStyling>
+          <h1>Congratulations!</h1>
+          <h2>Your listing was completed!</h2>
+          <br/>
+          <h3>Would you like to add a new listing or navigate to your dashboard?</h3>
+          <ButtonStyling>New Listing</ButtonStyling>
+          <ButtonStyling>Dashboard</ButtonStyling>
+        </DivStyling>
+        
+      </div>
+    );
+  }
 }
+
+export default OnboardingEight;

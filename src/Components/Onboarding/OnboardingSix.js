@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 import Header from "../Header";
 
@@ -23,20 +23,24 @@ const ButtonStyling = styled.button`
   background-color: #19bd60;
 `;
 
-export default function OnboardingSix() {
-  return (
-    <div>
-      <Header />
-      <DivStyling>
-        <h2>The optimal price is:</h2>
-        <h3>"$259.00"</h3>
-        <h4>Listing at this price would allow you to receive "$7,770.00" a month on average at full occupancy.</h4>
-      <SecondDivStyling>
-        <h4>Do you wish to list at this price?</h4>
-        <ButtonStyling>Yes</ButtonStyling>
-        <ButtonStyling>No</ButtonStyling>
-      </SecondDivStyling>  
-      </DivStyling>
-    </div>
-  );
+export class OnboardingSix extends Component {
+  render() {
+    return (
+      <div>
+        <Header />
+        <DivStyling>
+          <h2>The optimal price is:</h2>
+          <h3>"$259.00"</h3>
+          <h4>Listing at this price would allow you to receive "$7,770.00" a month on average at full occupancy.</h4>
+        <SecondDivStyling>
+          <h4>Do you wish to list at this price?</h4>
+          <ButtonStyling>Yes</ButtonStyling>
+          <ButtonStyling>No</ButtonStyling>
+        </SecondDivStyling>  
+        </DivStyling>
+      </div>
+    );
+  }
 }
+
+export default OnboardingSix;
