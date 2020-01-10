@@ -16,6 +16,11 @@ const ButtonStyling = styled.button`
   margin: 0% 42% 10% 42%;
   color: white;
   background-color: #19bd60;
+  box-shadow: 5px 5px 5px rgba(204, 204, 204, 1);
+
+  &:hover {
+    background-color: #128745;
+  }
 `;
 
 export class OnboardingOne extends Component {

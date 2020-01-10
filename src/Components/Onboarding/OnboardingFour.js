@@ -33,6 +33,11 @@ const ButtonStyling = styled.button`
   margin: 5% 3% 0% 37%;
   color: white;
   background-color: #19bd60;
+  box-shadow: 5px 5px 5px rgba(204, 204, 204, 1);
+
+  &:hover {
+    background-color: #128745;
+  }
 `;
 
 const BackButtonStyling = styled.button`
@@ -42,7 +47,12 @@ const BackButtonStyling = styled.button`
   height: 30px;
   margin: 5% 37% 0% 3%;
   color: black;
-  background-color: #cccccc;
+  background-color: #f2f2f2;
+  box-shadow: 5px 5px 5px rgba(204, 204, 204, 1);
+
+  &:hover {
+    background-color: #cccccc;
+  }
 `;
 
 export class OnboardingFour extends Component {

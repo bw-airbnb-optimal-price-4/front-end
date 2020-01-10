@@ -15,6 +15,11 @@ const ButtonStyling = styled.button`
   margin: 5% 42% 5% 42%;
   color: white;
   background-color: #19bd60;
+  box-shadow: 5px 5px 5px rgba(204, 204, 204, 1);
+
+  &:hover {
+    background-color: #128745;
+  }
 `;
 
 const InputStyling = styled.input`

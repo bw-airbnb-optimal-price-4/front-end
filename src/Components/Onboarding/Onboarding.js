@@ -50,7 +50,7 @@ export class Onboarding extends Component {
   // Axios post and get
   axiosRequests = async(values) => {
     // const listing = await axios.post('/listings', values)
-    const prediction = await axios.get('https://airbnb-optimal-price-4.herokuapp.com/prediction', {params:{id: 3}})
+    const prediction = await axios.get('https://airbnb-optimal-price-4.herokuapp.com/prediction', {params:{id: 1}}) // change id to listing.id
     this.setState({prediction: prediction.data})
     return (prediction.data);
   }  
