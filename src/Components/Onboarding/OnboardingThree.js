@@ -17,7 +17,7 @@ const ButtonStyling = styled.button`
   border: none;
   width: 10%;
   height: 30px;
-  margin: 5% 3% 5% 37%;
+  margin: 5% 3% 0% 37%;
   color: white;
   background-color: #19bd60;
   box-shadow: 5px 5px 5px rgba(204, 204, 204, 1);
@@ -44,18 +44,18 @@ const BackButtonStyling = styled.button`
 
 const SelectStyling = styled.select`
   margin: 3% 5%;
-  width: 4%;
 `;
 
 export class OnboardingThree extends Component {
-  continue = e => {
+  continue = async(e) => {
     e.preventDefault();
-    this.props.nextStep();  
+    this.props.nextStep();
+    await this.props.axiosRequests(this.props.values);
   }
 
   back = e => {
     e.preventDefault();
-    this.props.prevStep();  
+    this.props.prevStep();
   }
 
   render() {
@@ -64,15 +64,15 @@ export class OnboardingThree extends Component {
       <div>
         <Header />
         <DivStyling>
-          <h2>Obtain your first optimal price!</h2>
-          <h3>Step 2 of 3</h3>
+          <h2>Obtain your optimal price!</h2>
+          <h3>Step 2 of 2</h3>
         </DivStyling>
         <FormStyling>
           <div>
             <label>Choose max number of guests:</label>
             <SelectStyling name="number-of-guests"
-              onChange={handleChange('guests')}
-              defaultValue={values.guests}>
+              onChange={handleChange('accomodates')}
+              defaultValue={values.accomodates}>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -84,7 +84,7 @@ export class OnboardingThree extends Component {
               <option value="9">9</option>
               <option value="10">10</option>
               <option value="11">11</option>
-              <option value="12">12</option>  
+              <option value="12">12</option>
             </SelectStyling>
           </div>
           <div>
@@ -102,7 +102,7 @@ export class OnboardingThree extends Component {
               <option value="8">8</option>
             </SelectStyling>
           </div>
-          <div> 
+          <div>
             <label>Choose number of beds:</label>
             <SelectStyling name="total-beds"
               onChange={handleChange('beds')}
@@ -117,7 +117,7 @@ export class OnboardingThree extends Component {
               <option value="8">8</option>
             </SelectStyling>
           </div>
-          <div>  
+          <div>
             <label>Choose number of bathrooms:</label>
             <SelectStyling name="number-of-bathrooms"
               onChange={handleChange('bathrooms')}
@@ -133,7 +133,7 @@ export class OnboardingThree extends Component {
             </SelectStyling>
           </div>
         </FormStyling>
-        <ButtonStyling onClick={this.continue}>Step 3</ButtonStyling>
+        <ButtonStyling onClick={this.continue}>Get your quote</ButtonStyling>
         <BackButtonStyling onClick={this.back}>Back</BackButtonStyling>
       </div>
     );

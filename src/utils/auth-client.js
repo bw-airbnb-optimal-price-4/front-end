@@ -16,6 +16,7 @@ export const getToken = () => {
 };
 
 export const handleUserResponse = async token => {
+  console.log(token)
   localStorage.setItem("auth_token", JSON.stringify(token));
 
   return token;
@@ -27,10 +28,11 @@ export const fetchUserFromToken = async token => {
   const config = {
     ...axiosConfig,
     method: "get",
-    url: `/users/${jwt.payload.sub}`,
+    url: `restricted/users/${jwt.payload.subject}`,
     headers: {
+
       "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
+      "token": `${token}`,
     },
   };
 
@@ -43,12 +45,12 @@ export const login = form => {
   const config = {
     ...axiosConfig,
     method: "post",
-    url: "/auth/login",
+    url: "auth/login",
     data: JSON.stringify(form),
   };
 
   return Axios(config)
-    .then(({ data }) => handleUserResponse(data.accessToken))
+    .then(({ data }) => handleUserResponse(data.token))
     .catch(console.error);
 };
 
@@ -56,12 +58,12 @@ export const register = form => {
   const config = {
     ...axiosConfig,
     method: "post",
-    url: "/auth/register",
+    url: "auth/register",
     data: JSON.stringify(form),
   };
 
   return Axios(config)
-    .then(({ data }) => handleUserResponse(data.accessToken))
+    .then(({ data }) => handleUserResponse(data.token))
     .catch(console.error);
 };
 

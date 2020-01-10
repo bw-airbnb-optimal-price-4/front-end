@@ -50,17 +50,16 @@ const BackButtonStyling = styled.button`
 export class OnboardingFive extends Component {
   continue = e => {
     e.preventDefault();
-    this.props.nextStep();  
+    this.props.nextStep();
   }
 
   back = e => {
     e.preventDefault();
-    this.props.prevStep();  
+    this.props.prevStep();
   }
 
   render() {
     const { values, handleChange } = this.props;
-      console.log(values)
       return (
         <div>
           <Header />
@@ -71,12 +70,12 @@ export class OnboardingFive extends Component {
           <SecondDivStyling>
             <h4>What price do you wish to list your property for?</h4>
             <div>
-              <input 
-                type="text" 
-                name="currency-field" 
+              <input
+                type="text"
+                name="currency-field"
                 id="currency-field"
-                pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" 
-                data-type="currency" 
+                pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
+                data-type="currency"
                 value={"$" + (values.prediction.prediction)}
                 onChange={handleChange('listingPrice')}
                 defaultValue={values.listingPrice}
@@ -84,8 +83,8 @@ export class OnboardingFive extends Component {
               </input>
             </div>
             <ButtonStyling onClick={this.continue}>Proceed</ButtonStyling>
-            <BackButtonStyling onClick={this.back}>Back</BackButtonStyling> 
-          </SecondDivStyling>  
+            <BackButtonStyling onClick={this.back}>Back</BackButtonStyling>
+          </SecondDivStyling>
           </DivStyling>
         </div>
       );
