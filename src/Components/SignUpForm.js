@@ -6,6 +6,12 @@ import FormWithStyles from "./Form/FormWithStyles";
 import InputWithStyles from "./Form/InputWithStyles";
 import ButtonSubmit from "./Form/ButtonSubmit";
 import LinkWithStyles from "./LinkWithStyles";
+import styled from "styled-components";
+
+const StyledHeading = styled.h1`
+  text-align: center;
+  margin: 5% 0% -5%;
+`;
 
 const SignUpForm = () => {
   const { register } = useAuth();
@@ -25,7 +31,7 @@ const SignUpForm = () => {
 
   return (
     <CenteredLayout>
-      <h1>Create an account and start pricing today</h1>
+      <StyledHeading>Create an account and start pricing today</StyledHeading>
       <FormWithStyles onSubmit={handleOnSubmit}>
         {state.email.error && (
           <p style={{ color: "red" }}>{state.email.error}</p>

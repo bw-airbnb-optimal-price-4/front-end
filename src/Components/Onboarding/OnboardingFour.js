@@ -46,9 +46,10 @@ const BackButtonStyling = styled.button`
 `;
 
 export class OnboardingFour extends Component {
-  continue = e => {
+  continue = async(e) => {
     e.preventDefault();
-    this.props.nextStep();  
+    this.props.nextStep();
+    await this.props.axiosRequests();
   }
 
   back = e => {

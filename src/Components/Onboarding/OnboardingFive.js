@@ -50,13 +50,14 @@ export class OnboardingFive extends Component {
 
   render() {
     const { values, handleChange } = this.props;
+      console.log(values)
       return (
         <div>
           <Header />
           <DivStyling>
             <h2>The optimal price is:</h2>
-            <OptimalPriceStyling>$259.00</OptimalPriceStyling>
-            <h4>Listing at this price would allow you to receive "$7,770.00" a month on average at full occupancy.</h4>
+            <OptimalPriceStyling>{"$" + (values.prediction.prediction)}</OptimalPriceStyling>
+            <h4>Listing at this price would allow you to receive {"$" + (values.prediction.prediction * 30)} a month on average at full occupancy.</h4>
           <SecondDivStyling>
             <h4>What price do you wish to list your property for?</h4>
             <div>
@@ -66,7 +67,7 @@ export class OnboardingFive extends Component {
                 id="currency-field"
                 pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" 
                 data-type="currency" 
-                placeholder="$100.00"
+                value={"$" + (values.prediction.prediction)}
                 onChange={handleChange('listingPrice')}
                 defaultValue={values.listingPrice}
               >

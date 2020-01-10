@@ -6,6 +6,12 @@ import InputWithStyles from "./Form/InputWithStyles";
 import ButtonSubmit from "./Form/ButtonSubmit";
 import LinkWithStyles from "./LinkWithStyles";
 import useFormState from "../hooks/use-form-state";
+import styled from "styled-components";
+
+const StyledHeading = styled.h1`
+  text-align: center;
+  margin: 6% 0% -3.5%;
+`;
 
 const SignIn = ({ handleSubmit }) => {
   const { login } = useAuth();
@@ -23,7 +29,7 @@ const SignIn = ({ handleSubmit }) => {
 
   return (
     <CenteredLayout>
-      <h1>Welcome Back!</h1>
+      <StyledHeading>Welcome Back!</StyledHeading>
       <FormWithStyles onSubmit={handleOnSubmit}>
         {state.email.error && (
           <p style={{ color: "red" }}>{state.email.error}</p>

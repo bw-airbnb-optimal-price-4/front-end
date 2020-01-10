@@ -13,7 +13,7 @@ const AuthenticatedApp = () => (
   <Router>
     <Switch>
       <Route exact path="/">
-        <Redirect to="/dashboard" />
+        <Redirect to="/onboarding" />
       </Route>
       <Route path="/dashboard">
         <Dashboard />

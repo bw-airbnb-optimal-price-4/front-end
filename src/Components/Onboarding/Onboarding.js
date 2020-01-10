@@ -6,6 +6,7 @@ import OnboardingFour from "./OnboardingFour";
 import OnboardingFive from "./OnboardingFive";
 import OnboardingSix from "./OnboardingSix";
 import OnboardingSeven from "./OnboardingSeven";
+import axios from "axios";
 
 export class Onboarding extends Component {
   state = {
@@ -15,14 +16,14 @@ export class Onboarding extends Component {
     city: "",
     state: "",
     propertyType: "",
-    guests: "",
-    bedrooms: "",
-    beds: "",
-    bathrooms: "",
+    guests: "1",
+    bedrooms: "1",
+    beds: "1",
+    bathrooms: "1",
     description: "",
     propertyPicture: "",
     listingPrice: "",
-    optimalPrice: ""
+    prediction: {}
   }
 
   // Proceed to next step
@@ -46,10 +47,18 @@ export class Onboarding extends Component {
     this.setState({ [input]: e.target.value});
   };
 
+  // Axios post and get
+  axiosRequests = async(values) => {
+    // const listing = await axios.post('/listings', values)
+    const prediction = await axios.get('https://airbnb-optimal-price-4.herokuapp.com/prediction', {params:{id: 3}})
+    this.setState({prediction: prediction.data})
+    return (prediction.data);
+  }  
+
   render() {
     const { step } = this.state;
-    const { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture, listingPrice, optimalPrice} = this.state;
-    const values = { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture, listingPrice, optimalPrice };
+    const { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture, listingPrice, prediction} = this.state;
+    const values = { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture, listingPrice, prediction };
 
     switch(step) {
       case 1:
@@ -83,7 +92,9 @@ export class Onboarding extends Component {
           <OnboardingFour 
           nextStep={this.nextStep}
           prevStep={this.prevStep}
+          axiosRequests={this.axiosRequests}
           handleChange={this.handleChange}
+          pricingValue={this.pricingValue}
           values={values}/>
         )
       case 5:
