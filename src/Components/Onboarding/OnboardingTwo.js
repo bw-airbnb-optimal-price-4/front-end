@@ -27,22 +27,6 @@ const FormStyling = styled.form`
   margin-right: 37%;
 `;
 
-const InputStyling = styled.input`
-  margin: 2% 38%;
-  width: 24%;
-`;
-
-const CityStyling = styled.input`
-  margin: 2% 0% 2% 38%;
-  width: 18%;
-`;
-
-const StateStyling = styled.input`
-  display: inline-block;
-  margin: 2% 37.5% 2% 0%;
-  width: 5.9%;
-`;
-
 const SelectStyling = styled.select`
   margin: 2% 3%;
 `;
