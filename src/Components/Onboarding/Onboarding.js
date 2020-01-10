@@ -2,26 +2,22 @@ import React, { Component } from "react";
 import OnboardingOne from "./OnboardingOne";
 import OnboardingTwo from "./OnboardingTwo";
 import OnboardingThree from "./OnboardingThree";
-import OnboardingFour from "./OnboardingFour";
 import OnboardingFive from "./OnboardingFive";
 import OnboardingSix from "./OnboardingSix";
 import OnboardingSeven from "./OnboardingSeven";
 import axios from "axios";
+import {getToken} from "../../utils/auth-client"
 
 export class Onboarding extends Component {
   state = {
     step: 1,
-    listingName: "",
-    streetAddress: "",
-    city: "",
-    state: "",
     propertyType: "",
-    guests: "1",
+    roomType: "",
+    neighborhood: "",
+    accomodates: "1",
     bedrooms: "1",
     beds: "1",
     bathrooms: "1",
-    description: "",
-    propertyPicture: "",
     listingPrice: "",
     prediction: {}
   }
@@ -49,73 +45,83 @@ export class Onboarding extends Component {
 
   // Axios post and get
   axiosRequests = async(values) => {
-    // const listing = await axios.post('/listings', values)
-    const prediction = await axios.get('https://airbnb-optimal-price-4.herokuapp.com/prediction', {params:{id: 1}}) // change id to listing.id
+    const token = getToken()
+    console.log(token)
+    const listing = await axios({
+        method: "post",
+        url: process.env.REACT_APP_API_URL + 'restricted/listings',
+        data: {
+          "roomTypes": values.roomType,
+          "userId": 2,
+          "propertyTypeId": Number(values.propertyTypeId),
+          "neighborhoodId": Number(values.neighborhoodId),
+          "accommadates": Number(values.guests),
+          "beds": Number(values.beds),
+          "bedrooms": Number(values.bedrooms),
+          "bathrooms": Number(values.bathrooms)
+        },
+        headers: {
+          "Content-Type": "application/json",
+          "token": `${token}`,
+        },
+    })
+    const prediction = await axios.get('https://airbnb-optimal-price-4.herokuapp.com/prediction', {params:{id: listing.id}}) // change id to listing.id
     this.setState({prediction: prediction.data})
     return (prediction.data);
-  }  
+  }
 
   render() {
     const { step } = this.state;
-    const { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture, listingPrice, prediction} = this.state;
-    const values = { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture, listingPrice, prediction };
+    const { neighborhood, propertyType, roomType, accomodates, bedrooms, beds, bathrooms} = this.state;
+    const values = { neighborhood, propertyType, roomType, accomodates, bedrooms, beds, bathrooms};
 
     switch(step) {
       case 1:
         return (
-          <OnboardingOne 
+          <OnboardingOne
             nextStep={this.nextStep}
             handleChange={this.handleChange}
             values={values}
           />
-        )    
+        )
       case 2:
-        return (      
-          <OnboardingTwo 
+        return (
+          <OnboardingTwo
           nextStep={this.nextStep}
           prevStep={this.prevStep}
           handleChange={this.handleChange}
           values={values}
           />
-        )  
+        )
       case 3:
-        return (    
-          <OnboardingThree 
-          nextStep={this.nextStep}
-          prevStep={this.prevStep}
-          handleChange={this.handleChange}
-          values={values}
-          />            
-        )    
-      case 4:
-        return (      
-          <OnboardingFour 
+        return (
+          <OnboardingThree
           nextStep={this.nextStep}
           prevStep={this.prevStep}
           axiosRequests={this.axiosRequests}
           handleChange={this.handleChange}
-          pricingValue={this.pricingValue}
+          values={values}
+          />
+        )
+      case 4:
+        return (
+          <OnboardingFive
+          nextStep={this.nextStep}
+          prevStep={this.prevStep}
+          handleChange={this.handleChange}
           values={values}/>
         )
       case 5:
         return (
-          <OnboardingFive 
-          nextStep={this.nextStep}
-          prevStep={this.prevStep}
-          handleChange={this.handleChange}
-          values={values}/>            
-        )    
-      case 6:
-        return (      
-          <OnboardingSix 
+          <OnboardingSix
           nextStep={this.nextStep}
           prevStep={this.prevStep}
           values={values}/>
-        )      
-      case 7:
-        return (      
+        )
+      case 6:
+        return (
           <OnboardingSeven />
-        )      
+        )
       }
     }
   }

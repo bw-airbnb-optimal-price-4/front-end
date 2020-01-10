@@ -23,8 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:api": "cross-env PORT=4000 nodemon api/server.js",
-    "start": "run-s start:api start:ui",
+    "start": "run-s start",
     "format": "prettier --write \"**/*.{js,jsx}\"",
     "make:data": "node api/data/data.js"
   },
