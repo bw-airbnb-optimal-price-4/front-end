@@ -41,14 +41,14 @@ const BackButtonStyling = styled.button`
 export class OnboardingSix extends Component {
   continue = e => {
     e.preventDefault();
-    this.props.nextStep();  
+    this.props.nextStep();
   }
 
   back = e => {
     e.preventDefault();
-    this.props.prevStep();  
+    this.props.prevStep();
   }
-  
+
   render() {
     const { values: { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture, listingPrice } } = this.props;
       return (
@@ -68,10 +68,10 @@ export class OnboardingSix extends Component {
             <p>Bathrooms: {bathrooms}</p>
             <p>Description: {description}</p>
             <p>Listing Price: {listingPrice}</p>
-            <img src={propertyPicture}/>
+            <img alt="" src={propertyPicture}/>
             </div>
             <ButtonStyling onClick={this.continue}>List Property</ButtonStyling>
-            <BackButtonStyling onClick={this.back}>Edit Listing</BackButtonStyling> 
+            <BackButtonStyling onClick={this.back}>Edit Listing</BackButtonStyling>
           </DivStyling>
         </div>
       );

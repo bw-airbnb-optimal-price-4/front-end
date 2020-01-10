@@ -46,7 +46,6 @@ export class Onboarding extends Component {
   // Axios post and get
   axiosRequests = async(values) => {
     const token = getToken()
-    console.log(token)
     const listing = await axios({
         method: "post",
         url: process.env.REACT_APP_API_URL + 'restricted/listings',
@@ -122,6 +121,8 @@ export class Onboarding extends Component {
         return (
           <OnboardingSeven />
         )
+
+        // no default
       }
     }
   }
