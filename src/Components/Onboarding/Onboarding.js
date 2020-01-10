@@ -10,16 +10,7 @@ import {getToken} from "../../utils/auth-client"
 
 export class Onboarding extends Component {
   state = {
-    step: 1,
-    propertyType: "",
-    roomType: "",
-    neighborhood: "",
-    accomodates: "1",
-    bedrooms: "1",
-    beds: "1",
-    bathrooms: "1",
-    listingPrice: "",
-    prediction: {}
+    step: 1
   }
 
   // Proceed to next step
@@ -44,20 +35,20 @@ export class Onboarding extends Component {
   };
 
   // Axios post and get
-  axiosRequests = async(values) => {
+  axiosRequests = async() => {
     const token = getToken()
     const listing = await axios({
         method: "post",
         url: process.env.REACT_APP_API_URL + 'restricted/listings',
         data: {
-          "roomTypes": values.roomType,
+          "roomTypes": this.state.roomType,
           "userId": 2,
-          "propertyTypeId": Number(values.propertyTypeId),
-          "neighborhoodId": Number(values.neighborhoodId),
-          "accommadates": Number(values.guests),
-          "beds": Number(values.beds),
-          "bedrooms": Number(values.bedrooms),
-          "bathrooms": Number(values.bathrooms)
+          "propertyTypeId": Number(this.state.propertyTypeId),
+          "neighborhoodId": Number(this.state.neighborhoodId),
+          "accommadates": Number(this.state.accomodates),
+          "beds": Number(this.state.beds),
+          "bedrooms": Number(this.state.bedrooms),
+          "bathrooms": Number(this.state.bathrooms)
         },
         headers: {
           "Content-Type": "application/json",
@@ -71,8 +62,6 @@ export class Onboarding extends Component {
 
   render() {
     const { step } = this.state;
-    const { neighborhood, propertyType, roomType, accomodates, bedrooms, beds, bathrooms} = this.state;
-    const values = { neighborhood, propertyType, roomType, accomodates, bedrooms, beds, bathrooms};
 
     switch(step) {
       case 1:
@@ -80,7 +69,7 @@ export class Onboarding extends Component {
           <OnboardingOne
             nextStep={this.nextStep}
             handleChange={this.handleChange}
-            values={values}
+            values={this.state}
           />
         )
       case 2:
@@ -89,7 +78,7 @@ export class Onboarding extends Component {
           nextStep={this.nextStep}
           prevStep={this.prevStep}
           handleChange={this.handleChange}
-          values={values}
+          values={this.state}
           />
         )
       case 3:
@@ -99,7 +88,7 @@ export class Onboarding extends Component {
           prevStep={this.prevStep}
           axiosRequests={this.axiosRequests}
           handleChange={this.handleChange}
-          values={values}
+          values={this.state}
           />
         )
       case 4:
@@ -108,14 +97,14 @@ export class Onboarding extends Component {
           nextStep={this.nextStep}
           prevStep={this.prevStep}
           handleChange={this.handleChange}
-          values={values}/>
+          values={this.state}/>
         )
       case 5:
         return (
           <OnboardingSix
           nextStep={this.nextStep}
           prevStep={this.prevStep}
-          values={values}/>
+          values={this.state}/>
         )
       case 6:
         return (
