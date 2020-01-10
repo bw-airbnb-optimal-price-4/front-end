@@ -98,7 +98,7 @@ export class OnboardingTwo extends Component {
         <label>Choose Property Type:</label>
           <SelectStyling name="room-type"
             onChange={handleChange('roomType')}
-            defaultValue={values.roomType}
+            defaultValue={values.roomType || ""}
           >
             <option value="" disabled hidden>
               Choose Room Type
@@ -113,7 +113,7 @@ export class OnboardingTwo extends Component {
           <label>Choose Neighborhood:</label>
           <SelectStyling name="neighborhood"
             onChange={handleChange('neighborhood')}
-            defaultValue={values.neighborhood}
+            defaultValue={values.neighborhood || ""}
           >
             <option value="" disabled hidden>
               Choose Neighborhood
@@ -125,7 +125,7 @@ export class OnboardingTwo extends Component {
           <label>Choose Property Type:</label>
           <SelectStyling name="propertyType"
             onChange={handleChange('propertyType')}
-            defaultValue={values.propertyType}
+            defaultValue={values.propertyType || ""}
           >
             <option value="" disabled hidden>
               Choose Property Type
