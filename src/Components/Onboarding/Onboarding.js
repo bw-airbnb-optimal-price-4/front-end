@@ -10,7 +10,14 @@ import {getToken} from "../../utils/auth-client"
 
 export class Onboarding extends Component {
   state = {
-    step: 1
+    step: 1,
+    accomodates: "1",
+    bathrooms: "1",
+    bedrooms: "1",
+    beds: "1",
+    neighborhood: "",
+    propertyType: "",
+    roomType: ""
   }
 
   // Proceed to next step
@@ -41,11 +48,11 @@ export class Onboarding extends Component {
         method: "post",
         url: process.env.REACT_APP_API_URL + 'restricted/listings',
         data: {
-          "roomTypes": this.state.roomType,
+          "roomType": this.state.roomType,
           "userId": 2,
-          "propertyTypeId": Number(this.state.propertyTypeId),
-          "neighborhoodId": Number(this.state.neighborhoodId),
-          "accommadates": Number(this.state.accomodates),
+          "propertyTypeId": Number(this.state.propertyType),
+          "neighborhoodId": Number(this.state.neighborhood),
+          "accommodates": Number(this.state.accomodates),
           "beds": Number(this.state.beds),
           "bedrooms": Number(this.state.bedrooms),
           "bathrooms": Number(this.state.bathrooms)
@@ -55,9 +62,8 @@ export class Onboarding extends Component {
           "token": `${token}`,
         },
     })
-    const prediction = await axios.get('https://airbnb-optimal-price-4.herokuapp.com/prediction', {params:{id: listing.id}}) // change id to listing.id
+    const prediction = await axios.get('https://airbnb-optimal-price-4.herokuapp.com/prediction', {params:{id: listing.data.id}})
     this.setState({prediction: prediction.data})
-    return (prediction.data);
   }
 
   render() {
