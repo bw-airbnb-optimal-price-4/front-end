@@ -49,7 +49,6 @@ export class Onboarding extends Component {
         url: process.env.REACT_APP_API_URL + 'restricted/listings',
         data: {
           "roomType": this.state.roomType,
-          "userId": 2,
           "propertyTypeId": Number(this.state.propertyType),
           "neighborhoodId": Number(this.state.neighborhood),
           "accommodates": Number(this.state.accomodates),
