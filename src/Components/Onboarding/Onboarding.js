@@ -68,7 +68,7 @@ export class Onboarding extends Component {
           "token": `${token}`,
         },
     })
-    const prediction = await axios.get('http://localhost:5000/prediction', {params:{id: listing.data.id}})
+    const prediction = await axios.get('https://airbnb-optimal-price-4.herokuapp.com/prediction', {params:{id: listing.data.id}})
     this.setState({prediction: prediction.data})
     this.setState({listingPrice: prediction.data.prediction})
   }
