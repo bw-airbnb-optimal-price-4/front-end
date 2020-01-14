@@ -37,9 +37,7 @@ export class OnboardingTwo extends Component {
     this.props.nextStep();
   }
 
-  render() {
-    const { values, handleChange } = this.props;
-    const neighborhoods = {35: 'Allendale', 6: 'Anderson Mill', 12: 'Angus Valley',
+  neighborhoods = {35: 'Allendale', 6: 'Anderson Mill', 12: 'Angus Valley',
     25: 'Balcones Civic Association', 17: 'Balcony Woods',
     54: 'Barton Creek', 73: 'Barton Hills', 67: 'Bouldin Creek',
     24: 'Brentwood', 69: 'Bryker Woods', 28: 'Bull Creek',
@@ -68,7 +66,7 @@ export class OnboardingTwo extends Component {
     2:  'Windsor Hills', 30: 'Windsor Park', 11: 'Wooten',
     70: 'Zilker'}
 
-    const propertyTypes = {34: 'Aparthotel', 17: 'Apartment', 5: 'Barn',
+    propertyTypes = {34: 'Aparthotel', 17: 'Apartment', 5: 'Barn',
                   16: 'Bed and breakfast', 2: 'Boat', 31: 'Boutique hotel',
                   23: 'Bungalow', 1: 'Bus', 15: 'Cabin', 7: 'Camper/RV',
                   0:  'Campsite', 29: 'Casa particular (Cuba)', 30: 'Chalet',
@@ -80,11 +78,24 @@ export class OnboardingTwo extends Component {
                   20: 'Tipi', 21: 'Townhouse', 11: 'Treehouse', 32: 'Villa',
                   6:  'Yurt'}
 
-    const neighborhoodsOptions = Object.keys(neighborhoods).map(key =>
-          <option key={Number(key) + 1} value={Number(key) + 1}>{neighborhoods[key]}</option>
+  onNeighborhoodChange = e => {
+    this.props.addValues('neighborhood', e.target.value)
+    this.props.addValues('neighborhoodName', this.neighborhoods[Number(e.target.value) - 1])
+  }
+  onPropertyTypeChange = e => {
+    this.props.addValues('propertyType', e.target.value)
+    this.props.addValues('propertyTypeName', this.propertyTypes[Number(e.target.value) - 1])
+  }
+
+  render() {
+    const { values, handleChange } = this.props;
+
+
+    const neighborhoodsOptions = Object.keys(this.neighborhoods).map(key =>
+          <option key={Number(key) + 1} value={Number(key) + 1}>{this.neighborhoods[key]}</option>
       )
-    const propertyTypesOptions = Object.keys(propertyTypes).map(key =>
-          <option key={Number(key) + 1} value={Number(key) + 1}>{propertyTypes[key]}</option>
+    const propertyTypesOptions = Object.keys(this.propertyTypes).map(key =>
+          <option key={Number(key) + 1} value={Number(key) + 1}>{this.propertyTypes[key]}</option>
       )
     return (
       <div>
@@ -112,7 +123,7 @@ export class OnboardingTwo extends Component {
           <div>
           <label>Choose Neighborhood:</label>
           <SelectStyling name="neighborhood"
-            onChange={handleChange('neighborhood')}
+            onChange={this.onNeighborhoodChange}
             defaultValue={values.neighborhood || ""}
           >
             <option value="" disabled hidden>
@@ -124,7 +135,7 @@ export class OnboardingTwo extends Component {
           <div>
           <label>Choose Property Type:</label>
           <SelectStyling name="propertyType"
-            onChange={handleChange('propertyType')}
+            onChange={this.onPropertyTypeChange}
             defaultValue={values.propertyType || ""}
           >
             <option value="" disabled hidden>

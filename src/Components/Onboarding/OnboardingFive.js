@@ -60,6 +60,7 @@ export class OnboardingFive extends Component {
 
   render() {
     const { values, handleChange } = this.props;
+    if (values.prediction) {
       return (
         <div>
           <Header />
@@ -74,7 +75,6 @@ export class OnboardingFive extends Component {
                 type="text"
                 name="currency-field"
                 id="currency-field"
-                pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
                 data-type="currency"
                 onChange={handleChange('listingPrice')}
                 defaultValue={values.listingPrice}
@@ -87,6 +87,13 @@ export class OnboardingFive extends Component {
           </DivStyling>
         </div>
       );
+    }else{
+      return (
+        <div>
+          Waiting...
+        </div>
+      )
+    }
     }
   }
 

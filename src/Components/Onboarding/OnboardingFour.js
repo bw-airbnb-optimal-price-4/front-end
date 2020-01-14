@@ -58,13 +58,13 @@ const BackButtonStyling = styled.button`
 export class OnboardingFour extends Component {
   continue = async(e) => {
     e.preventDefault();
-    this.props.nextStep();
+    // this.props.nextStep();
     await this.props.axiosRequests();
   }
 
   back = e => {
     e.preventDefault();
-    this.props.prevStep();  
+    this.props.prevStep();
   }
 
   render() {
@@ -74,9 +74,9 @@ export class OnboardingFour extends Component {
         <Header />
         <DivStyling>
           <h2>Please provide additional property information</h2>
-          <h3>Step 3 of 3</h3>      
+          <h3>Step 3 of 3</h3>
           <form>
-            <DescriptionStyling>  
+            <DescriptionStyling>
               <label>Provide a short description of your property:
               <textarea rows="3" cols="50" name="description" placeholder="Enter property description here..."
                 onChange={handleChange('description')}
@@ -92,43 +92,43 @@ export class OnboardingFour extends Component {
                 defaultValue={values.propertyPicture}
                 accept="image/png, image/jpeg"/>
               </label>
-            </PicUploadStyling>  
+            </PicUploadStyling>
             <p>Please check all of the following amenities your property offers:</p>
             <AmenitiesStyling>
-              <label>TV 
+              <label>TV
                 <input type="checkbox" name="tv"/>
               </label>
-              <label>Internet 
+              <label>Internet
                 <input type="checkbox" name="internet"/>
               </label>
-              <label>WiFi 
+              <label>WiFi
                 <input type="checkbox" name="wifi"/>
               </label>
-              <label>Kitchen 
+              <label>Kitchen
                 <input type="checkbox" name="kitchen"/>
               </label>
-              <label>Pet-Friendly 
+              <label>Pet-Friendly
                 <input type="checkbox" name="pets"/>
               </label>
-              <label>Breakfast 
+              <label>Breakfast
                 <input type="checkbox" name="breakfast"/>
               </label>
-              <label>Free Parking 
+              <label>Free Parking
                 <input type="checkbox" name="free-parking"/>
               </label>
-              <label>Hot Tub 
+              <label>Hot Tub
                 <input type="checkbox" name="hot-tub"/>
               </label>
-              <label>Air Condintioning 
+              <label>Air Condintioning
                 <input type="checkbox" name="air-conditioning"/>
               </label>
-              <label>Private Entrance 
+              <label>Private Entrance
                 <input type="checkbox" name="private-entrance"/>
               </label>
             </AmenitiesStyling>
           </form>
           <ButtonStyling onClick={this.continue}>Get your quote</ButtonStyling>
-          <BackButtonStyling onClick={this.back}>Back</BackButtonStyling> 
+          <BackButtonStyling onClick={this.back}>Back</BackButtonStyling>
         </DivStyling>
       </div>
     );
