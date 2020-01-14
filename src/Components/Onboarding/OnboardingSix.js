@@ -14,13 +14,10 @@ const ButtonStyling = styled.button`
   width: 10%;
   height: 30px;
   margin: 3% 3% 0% 37%;
-  color: white;
-  background-color: #19bd60;
   box-shadow: 5px 5px 5px rgba(204, 204, 204, 1);
+  background-color: #cccccc;
+  color: #666666;
 
-  &:hover {
-    background-color: #128745;
-  }
 `;
 
 const BackButtonStyling = styled.button`
@@ -50,27 +47,23 @@ export class OnboardingSix extends Component {
   }
 
   render() {
-    const { values: { listingName, streetAddress, city, state, propertyType, guests, bedrooms, beds, bathrooms, description, propertyPicture, listingPrice } } = this.props;
+    const { values } = this.props;
       return (
         <div>
           <Header />
           <DivStyling>
             <h2>Please review your listing:</h2>
             <div>
-            <p>Listing Name: {listingName}</p>
-            <p>Address: {streetAddress}</p>
-            <p>City: {city}</p>
-            <p>State: {state}</p>
-            <p>Property Type: {propertyType}</p>
-            <p>Accomodates: {guests}</p>
-            <p>Bedrooms: {bedrooms}</p>
-            <p>Beds: {beds}</p>
-            <p>Bathrooms: {bathrooms}</p>
-            <p>Description: {description}</p>
-            <p>Listing Price: {listingPrice}</p>
-            <img alt="" src={propertyPicture}/>
+            <p>Property Type: {values.propertyTypeName}</p>
+            <p>Neighborhood: {values.neighborhoodName}</p>
+            <p>Room Type: {values.roomType}</p>
+            <p>Accomodates: {values.accomodates}</p>
+            <p>Bedrooms: {values.bedrooms}</p>
+            <p>Beds: {values.beds}</p>
+            <p>Bathrooms: {values.bathrooms}</p>
+            <p>Listing Price: ${values.listingPrice}</p>
             </div>
-            <ButtonStyling onClick={this.continue}>List Property</ButtonStyling>
+            <ButtonStyling disabled onClick={this.continue}>List Property</ButtonStyling>
             <BackButtonStyling onClick={this.back}>Edit Listing</BackButtonStyling>
           </DivStyling>
         </div>

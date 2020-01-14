@@ -75,10 +75,9 @@ export class OnboardingFive extends Component {
                 type="text"
                 name="currency-field"
                 id="currency-field"
-                pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
                 data-type="currency"
                 onChange={handleChange('listingPrice')}
-                defaultValue={"$" + values.prediction.prediction}
+                defaultValue={values.listingPrice}
               >
               </input>
             </div>

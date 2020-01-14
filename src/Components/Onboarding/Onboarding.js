@@ -16,8 +16,11 @@ export class Onboarding extends Component {
     bedrooms: "1",
     beds: "1",
     neighborhood: "",
+    neighborhoodName: "",
     propertyType: "",
-    roomType: ""
+    propertyTypeName: "",
+    roomType: "",
+    listingPrice: ""
   }
 
   // Proceed to next step
@@ -34,6 +37,10 @@ export class Onboarding extends Component {
     this.setState({
       step: step - 1
     });
+  }
+
+  addValues = (name, value) => {
+    this.setState({[name]: value})
   }
 
   // Handle fields change
@@ -61,8 +68,9 @@ export class Onboarding extends Component {
           "token": `${token}`,
         },
     })
-    const prediction = await axios.get('https://airbnb-optimal-price-4.herokuapp.com/prediction', {params:{id: listing.data.id}})
+    const prediction = await axios.get('http://localhost:5000/prediction', {params:{id: listing.data.id}})
     this.setState({prediction: prediction.data})
+    this.setState({listingPrice: prediction.data.prediction})
   }
 
   render() {
@@ -84,6 +92,7 @@ export class Onboarding extends Component {
           prevStep={this.prevStep}
           handleChange={this.handleChange}
           values={this.state}
+          addValues={this.addValues}
           />
         )
       case 3:
